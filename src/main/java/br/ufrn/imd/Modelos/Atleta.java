@@ -1,6 +1,6 @@
-package br.ufrn.imd;
+package br.ufrn.imd.Modelos;
 
-import Enum.*;
+import br.ufrn.imd.Enum.*;
 import java.util.ArrayList;
 
 public class Atleta {

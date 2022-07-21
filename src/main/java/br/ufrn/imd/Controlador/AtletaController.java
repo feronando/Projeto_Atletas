@@ -1,7 +1,20 @@
 package br.ufrn.imd.Controlador;
 
 import br.ufrn.imd.Atleta;
+
+import java.util.ArrayList;
+
+import br.ufrn.imd.Dao.AtletaDao;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import java.io.FileReader;
+import java.io.Reader;
+
 public class AtletaController implements Controller<Atleta> {
+
+    AtletaDao dao;
+
 
     public void index() {
         // TODO: Listar todos os atletas
