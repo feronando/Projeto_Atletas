@@ -12,40 +12,53 @@ public class Main {
         int op;
 
         do{
-            System.out.println("\nEscolha a opção desejada: ");
-            System.out.println("\t1 - Adicionar um atleta");
-            System.out.println("\t2 - Excluir um atleta");
-            System.out.println("\t3 - Visualizar lista de atletas");
-            System.out.println("\t4 - Visualizar um atleta");
-            System.out.println("\t5 - Editar um atleta");
+            Menu menu = new Menu();
+            menu.MenuPrincipal();
             op = input.nextInt();
 
-            switch (op)
-            case 1:
-                //adicionar um atleta
-                Atleta atleta = new Atleta();
-                System.out.println("Insira a matricula do novo atleta: ");
-                System.out.println("Insira o nome do novo atleta: ");
-                Menu menu = new Menu();
-                menu.MenuSexo();
+            switch (op){
+                case 1:
+                    //adicionar um atleta
+                    Atleta atleta = new Atleta();
+                    System.out.println("Insira a matricula do novo atleta: ");
+                    atleta.setMatricula(input.nextInt());
 
-                System.out.println("Insira a categoria do novo atleta: ");
-                System.out.println("Insira o curso do novo atleta: ");
-                System.out.println("Insira o ano do novo atleta: ");
-                System.out.println("Insira as modalidades do novo atleta: ");
-                break;
-            case 2:
-                //excluir um atleta
-                break;
-            case 3:
-                //visualizar lista de atletas
-                break;
-            case 4:
-                //visualizar um atleta
-                break;
-            case 5:
-                //editar um atleta
-                break;
+                    System.out.println("Insira o nome do novo atleta: ");
+                    atleta.setNome(input.nextLine());
+
+                    menu.MenuSexo();
+                    atleta.setSexo(menu.LerSexo());
+
+                    menu.MenuCategoria();
+                    atleta.setCategoria(menu.LerCategoria());
+
+                    menu.MenuCurso();
+                    atleta.setCurso(menu.LerCurso());
+
+                    System.out.println("Insira o ano do novo atleta: ");
+                    atleta.setAno_periodo(input.nextInt());
+
+                    menu.MenuModalidade();
+                    System.out.println("Quantas modalidades deseja inserir? ");
+                    int num = input.nextInt();
+                    for(int i=0; i< num; i++){
+                        atleta.setMod(input.nextLine());
+                    }
+                    
+                    break;
+                case 2:
+                    //excluir um atleta
+                    break;
+                case 3:
+                    //visualizar lista de atletas
+                    break;
+                case 4:
+                    //visualizar um atleta
+                    break;
+                case 5:
+                    //editar um atleta
+                    break;
+            }
 
 
         }while(op != 5);
