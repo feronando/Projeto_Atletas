@@ -1,10 +1,13 @@
+package br.ufrn.imd.Controlador;
+
+import br.ufrn.imd.Atleta;
 public class AtletaController implements Controller<Atleta> {
 
     public void index() {
         // TODO: Listar todos os atletas
 
         // TODO: Retornar para o usuário um JSON contendo todos o usuários
-        return
+        return;
     }
 
     public void create(Atleta atleta) {

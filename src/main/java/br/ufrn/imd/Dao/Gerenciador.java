@@ -1,6 +1,7 @@
-package br.ufrn.imd;
+package br.ufrn.imd.Dao;
 
-import Enum.*;
+import br.ufrn.imd.Atleta;
+import br.ufrn.imd.Enum.*;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

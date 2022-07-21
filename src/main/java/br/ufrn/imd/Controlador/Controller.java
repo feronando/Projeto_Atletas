@@ -1,3 +1,4 @@
+package br.ufrn.imd.Controlador;
 public interface Controller<T> {
 
     public void index(); 
