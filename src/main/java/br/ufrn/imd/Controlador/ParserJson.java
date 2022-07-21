@@ -25,16 +25,16 @@ public class ParserJson {
 
     private Atleta parseAtleta(JSONObject obj) {
         Atleta atl = new Atleta();
-        atl.setMatricula( (long) obj.get("Identificação") );
-        atl.setNome( (String) obj.get("Nome") );
-        atl.setSexo( (int) obj.get("Sexo") );
-        atl.setCategoria( (int) obj.get("Categoria") );
-        atl.setCurso( (int) obj.get("Curso") );
-        atl.setAno_periodo( (int) obj.get("Ano_Periodo"));
+        atl.setMatricula( Long.valueOf(obj.get("Identificacao").toString()));
+        atl.setNome( obj.get("Nome").toString() );
+        atl.setSexo( Integer.valueOf(obj.get("Sexo").toString()) );
+        atl.setCategoria( Integer.valueOf(obj.get("Categoria").toString()) );
+        atl.setCurso( Integer.valueOf(obj.get("Curso").toString()) );
+        atl.setAno_periodo( Integer.valueOf(obj.get("Ano_Periodo").toString()) );
         JSONArray aux = (JSONArray) obj.get("Modalidades");
         for (int j = 0; j < aux.size(); j++) {
             JSONObject obj2 = (JSONObject) aux.get(j);
-            atl.setMod( (String) obj2.get("Modalidade") );
+            atl.setMod( obj2.get("Modalidade").toString() );
         }
         return atl;
     }

@@ -47,6 +47,8 @@ public class Atleta {
             case 3:
                 this.sexo = Sexo.NaoBinario;
                 break;
+            default:
+                break;
         }
     }
 
@@ -61,6 +63,8 @@ public class Atleta {
                 break;
             case 2:
                 this.categoria = Categoria.Servidor;
+                break;
+            default:
                 break;
         }
     }
@@ -85,6 +89,8 @@ public class Atleta {
                 break;
             case 4:
                 this.curso = Curso.PosGraduacao;
+                break;
+            default:
                 break;
         }
     }
@@ -117,6 +123,27 @@ public class Atleta {
         else if (moda.equals(Modalidade.Nat.getNome()))
             this.moda.add(Modalidade.Nat);
         else if (moda.equals(Modalidade.TenM.getNome()))
+            this.moda.add(Modalidade.TenM);
+        else
+            this.moda.add(Modalidade.Vol);
+    }
+
+    public void setMod(int moda) {
+        if (moda == Modalidade.Atl.getCod())
+            this.moda.add(Modalidade.Atl);
+        else if (moda == Modalidade.Bas.getCod())
+            this.moda.add(Modalidade.Bas);
+        else if (moda == Modalidade.FutC.getCod())
+            this.moda.add(Modalidade.FutC);
+        else if (moda == Modalidade.Futs.getCod())
+            this.moda.add(Modalidade.Futs);
+        else if (moda == Modalidade.Han.getCod())
+            this.moda.add(Modalidade.Han);
+        else if (moda == Modalidade.JiuJ.getCod())
+            this.moda.add(Modalidade.JiuJ);
+        else if (moda == Modalidade.Nat.getCod())
+            this.moda.add(Modalidade.Nat);
+        else if (moda == Modalidade.TenM.getCod())
             this.moda.add(Modalidade.TenM);
         else
             this.moda.add(Modalidade.Vol);

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class AtletaDao implements Dao<Atleta> {
     private ArrayList<Atleta> lista;
 
-    public AtletaDao( ArrayList<Atleta> lista){
+    public AtletaDao( ArrayList<Atleta> lista ){
         this.lista = lista;
     }
 

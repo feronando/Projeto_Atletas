@@ -4,6 +4,7 @@ import br.ufrn.imd.Enum.Categoria;
 import br.ufrn.imd.Enum.Curso;
 import br.ufrn.imd.Modelos.Atleta;
 import java.io.FileWriter;
+
 import br.ufrn.imd.Dao.AtletaDao;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -20,13 +21,14 @@ public class AtletaController implements Controller<Atleta> {
     public void index() {
         if (!dao.getAll().isEmpty()) {
             JSONArray lista = new JSONArray();
-            for( Atleta atl : dao.getAll()) {
+            for( Atleta atl : dao.getAll() ) {
                 JSONObject obj = atletaToJson(atl);
                 lista.add(obj);
             }
             try {
                 FileWriter file = new FileWriter("src/main/resources/Database.json");
                 file.write(lista.toJSONString());
+                file.close();
                 System.out.println("Foi gerado um arquivo contendo todos os atlestas salvos!!");
                 System.out.println(lista);
             } catch (Exception e) {
@@ -38,16 +40,16 @@ public class AtletaController implements Controller<Atleta> {
 
     public JSONObject atletaToJson(Atleta A) {
         JSONObject obj = new JSONObject();
-        obj.put("Identificação", A.getMatricula());
+        obj.put("Identificacao", A.getMatricula());
         obj.put("Nome", A.getNome());
         obj.put("Sexo", A.getSexo().getCod());
         obj.put("Categoria", A.getCategoria().getCategoria());
         if (A.getCategoria() == Categoria.Servidor) {
             obj.put("Curso", Curso.Sem_Curso.getCod());
-            obj.put("Ano/Periodo", 0);
+            obj.put("Ano_Periodo", 0);
         } else {
             obj.put("Curso", A.getCurso().getCod());
-            obj.put("Ano/Periodo", A.getAno_periodo());
+            obj.put("Ano_Periodo", A.getAno_periodo());
         }
         JSONArray aux = new JSONArray();
         for (var i : A.getMod()) {
@@ -61,6 +63,10 @@ public class AtletaController implements Controller<Atleta> {
     }
 
     public void create(Atleta atleta) {
+        if (dao.get(atleta.getMatricula()) != null) {
+            System.out.println("Erro: já existe atleta salvo no sistema com a matrícula fornecida!");
+            return;
+        }
         dao.save(atleta);
         if(dao.get(atleta.getMatricula()) != null) {
             JSONObject obj = atletaToJson(atleta);
