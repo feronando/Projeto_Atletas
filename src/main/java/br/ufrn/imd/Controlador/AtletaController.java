@@ -1,51 +1,107 @@
 package br.ufrn.imd.Controlador;
 
-import br.ufrn.imd.Atleta;
-
-import java.util.ArrayList;
-
+import br.ufrn.imd.Enum.Categoria;
+import br.ufrn.imd.Enum.Curso;
+import br.ufrn.imd.Modelos.Atleta;
+import java.io.FileWriter;
 import br.ufrn.imd.Dao.AtletaDao;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import java.io.FileReader;
-import java.io.Reader;
 
 public class AtletaController implements Controller<Atleta> {
 
     AtletaDao dao;
 
+    public AtletaController() {
+        ParserJson parse = new ParserJson();
+        this.dao = new AtletaDao( parse.parserAll() );
+    }
 
     public void index() {
-        // TODO: Listar todos os atletas
+        if (!dao.getAll().isEmpty()) {
+            JSONArray lista = new JSONArray();
+            for( Atleta atl : dao.getAll()) {
+                JSONObject obj = atletaToJson(atl);
+                lista.add(obj);
+            }
+            try {
+                FileWriter file = new FileWriter("src/main/resources/Database.json");
+                file.write(lista.toJSONString());
+                System.out.println("Foi gerado um arquivo contendo todos os atlestas salvos!!");
+                System.out.println(lista);
+            } catch (Exception e) {
+                System.out.println("Erro: não foi possível gerar arquivo 'Database.json'!");
+            }
+        } else
+            System.out.println("Erro: não existem atletas salvos no sistema!");
+    }
 
-        // TODO: Retornar para o usuário um JSON contendo todos o usuários
-        return;
+    public JSONObject atletaToJson(Atleta A) {
+        JSONObject obj = new JSONObject();
+        obj.put("Identificação", A.getMatricula());
+        obj.put("Nome", A.getNome());
+        obj.put("Sexo", A.getSexo().getCod());
+        obj.put("Categoria", A.getCategoria().getCategoria());
+        if (A.getCategoria() == Categoria.Servidor) {
+            obj.put("Curso", Curso.Sem_Curso.getCod());
+            obj.put("Ano/Periodo", 0);
+        } else {
+            obj.put("Curso", A.getCurso().getCod());
+            obj.put("Ano/Periodo", A.getAno_periodo());
+        }
+        JSONArray aux = new JSONArray();
+        for (var i : A.getMod()) {
+            JSONObject obj2 = new JSONObject();
+            obj2.put("Modalidade", i.getNome());
+            obj2.put("Tipo", i.getTipo().getCod());
+            aux.add(obj2);
+        }
+        obj.put("Modalidades", aux);
+        return obj;
     }
 
     public void create(Atleta atleta) {
-        // TODO: Criar o atleta utilizando o modelo atleta caso ele não exista
-
-        // TODO: Retornar para o usuário um JSON contendo apenas o usuário criado
+        dao.save(atleta);
+        if(dao.get(atleta.getMatricula()) != null) {
+            JSONObject obj = atletaToJson(atleta);
+            System.out.println("O atleta adicionado com sucesso!!!");
+            System.out.println(obj);
+        } else
+            System.out.println("Erro: não foi possível salvar o atleta fornecido no sistema!");
     }
 
-    public void show(long id, Atleta atleta) {
-        // TODO: Mostrar apenas um usuário caso ele exista
-
-        // TODO: Retornar o usuário um JSON contendo apenas o usuário encontrado
+    public void show(long id) {
+        Atleta atl = dao.get(id);
+        if(atl != null) {
+            JSONObject obj = atletaToJson(atl);
+            System.out.println("O atleta foi encontrado!!!");
+            System.out.println(obj);
+        } else
+            System.out.println("Erro: não existe atleta no sistema com a matrícula fornecida!");
     }
 
-    public void edit(long id, Atleta atleta) {
-        // TODO: Editar o usuário com id igual ao informado pelo usuário
-
-        // TODO: Retornar o usuário um JSON contendo o usuário editado com os dados do usuário
-
+    public void edit(Atleta atleta) {
+        if(dao.get(atleta.getMatricula()) != null) {
+            dao.update(atleta);
+            JSONObject obj = atletaToJson(atleta);
+            System.out.println("O atleta foi editado com sucesso!!!");
+            System.out.println(obj);
+        } else
+            System.out.println("Erro: não existe atleta no sistema com a matrícula fornecida!");
     }
 
-    public void delete(long id, Atleta atleta) {
-        // TODO: Remover o usuário com o id igual ao informado pelo usuário
-
-        // TODO: Retonar um json informando que foi excluido com sucesso
+    public void delete(long id) {
+        if(dao.get(id) != null) {
+            Atleta atl = dao.get(id);
+            dao.delete(id);
+            if(dao.get(id) == null) {
+                JSONObject obj = atletaToJson(atl);
+                System.out.println("O atleta foi removido com sucesso!!!");
+                System.out.println(obj);
+            } else
+                System.out.println("Erro: não foi possível remover o atleta do sistema!");
+        } else
+            System.out.println("Erro: não existe atleta no sistema com a matrícula fornecida!");
     }
 
 }

@@ -1,4 +1,4 @@
-package Enum;
+package br.ufrn.imd.Enum;
 
 public enum Curso {
     Sem_Curso(0,"Não está cursando nenhum curso"),

@@ -1,4 +1,4 @@
-package Enum;
+package br.ufrn.imd.Enum;
 
 public enum Tipo {
     Individual(1,"Individual"),

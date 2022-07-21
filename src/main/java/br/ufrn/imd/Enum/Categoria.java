@@ -1,4 +1,4 @@
-package Enum;
+package br.ufrn.imd.Enum;
 
 public enum Categoria {
     Aluno(1, "Aluno"),

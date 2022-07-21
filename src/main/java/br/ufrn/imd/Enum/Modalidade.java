@@ -1,4 +1,4 @@
-package Enum;
+package br.ufrn.imd.Enum;
 
 public enum Modalidade {
     Atl(1,"Atletismo",Tipo.Individual),

@@ -1,4 +1,4 @@
-package Enum;
+package br.ufrn.imd.Enum;
 
 public enum Sexo {
     Feminino(1, "Feminino"),

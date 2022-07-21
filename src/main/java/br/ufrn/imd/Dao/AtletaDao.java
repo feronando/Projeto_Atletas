@@ -1,17 +1,10 @@
 package br.ufrn.imd.Dao;
 
-//import br.ufrn.imd.Dao;
 import br.ufrn.imd.Modelos.Atleta;
-
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class AtletaDao implements Dao<Atleta> {
     private ArrayList<Atleta> lista;
-
-    public AtletaDao() {
-        lista = new ArrayList<>();
-    }
 
     public AtletaDao( ArrayList<Atleta> lista){
         this.lista = lista;
@@ -25,16 +18,17 @@ public class AtletaDao implements Dao<Atleta> {
         this.lista.add(atleta);
     }
 
-    public void update(Atleta t){
-        for(Atleta atleta: this.lista){
-            if(atleta.getMatricula() == t.getMatricula()){
-                atleta = t;
+    public void update(Atleta atl){
+        for(int i = 0; i<lista.size(); i++){
+            if(lista.get(i).getMatricula() == atl.getMatricula()){
+                lista.set(i, atl);
+                return;
             }
         }
     }
 
-    public void delete(Atleta atleta){
-        this.lista.remove(atleta);
+    public void delete(long id){
+        this.lista.remove(get(id));
     }
 
     public Atleta get(long mat) {
