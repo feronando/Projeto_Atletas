@@ -5,7 +5,6 @@ import br.ufrn.imd.Dao.Menu;
 
 import java.util.Scanner;
 
-//https://mkyong.com/java/json-simple-example-read-and-write-json/
 public class Main {
     public static void main(String[] args) {
         AtletaController con = new AtletaController();
