@@ -12,7 +12,7 @@ Consulte **Implantação** para saber como implantar o projeto.
 ### Organização
 O sistema está organizado nas seguintes classes que estão representadas no diagrama de classes abaixo:
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/feronando/Projeto_Atletas/diagramas/classes/AtletaController_structure.png/image.jpg?raw=true "Diagrama de Atleta")
 
 ### 🚀 Instruções de como realizar o build
 
