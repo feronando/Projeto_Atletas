@@ -7,7 +7,10 @@
 ### 👩‍💻👨‍💻👩‍💻Participantes
 Projeto desenvolvido por Anny K. Fernandes, Fernanda G. Barros e Fernando G. de Almeida
 
-Consulte **Implantação** para saber como implantar o projeto.
+### 🎥 Apresentação do produto
+```
+https://youtu.be/XrC4QUODSdo
+```
 
 ### Organização
 O sistema está organizado nas seguintes classes que estão representadas no diagrama de classes abaixo:
