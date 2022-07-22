@@ -12,9 +12,13 @@ Projeto desenvolvido por Anny K. Fernandes, Fernanda G. Barros e Fernando G. de 
 <a href="https://youtu.be/XrC4QUODSdo">Acessar vídeo</a>
 
 ### Organização
-O sistema está organizado nas seguintes classes que estão representadas no diagrama de classes abaixo:
+O sistema está organizado nas seguintes classes que estão representadas nos diagramas de classes abaixo:
 
-![bruuh](https://github.com/feronando/Projeto_Atletas/main/diagramas/classes/AtletaControlerDiagrama.png)
+![bruuh](/diagramas/classes/ControllerDiagrama.png)
+![bruuh](/diagramas/classes/DaoDiagrama.png)
+![bruuh](/diagramas/classes/MainDiagrama.png)
+![bruuh](/diagramas/classes/ParserJSONDiagrama.png)
+
 
 ### 🚀 Instruções de como realizar o build
 
