@@ -8,7 +8,15 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.util.ArrayList;
 
+/**
+ * The type Parser json.
+ */
 public class ParserJson {
+    /**
+     * Parser all array list.
+     *
+     * @return the array list
+     */
     public ArrayList<Atleta> parserAll(){
         JSONArray lista;
         JSONParser parser = new JSONParser();

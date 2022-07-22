@@ -3,9 +3,17 @@ package br.ufrn.imd.Dao;
 import br.ufrn.imd.Modelos.Atleta;
 import java.util.ArrayList;
 
+/**
+ * The type Atleta dao.
+ */
 public class AtletaDao implements Dao<Atleta> {
     private ArrayList<Atleta> lista;
 
+    /**
+     * Instantiates a new Atleta dao.
+     *
+     * @param lista the lista
+     */
     public AtletaDao( ArrayList<Atleta> lista ){
         this.lista = lista;
     }

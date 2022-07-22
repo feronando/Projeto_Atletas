@@ -9,10 +9,19 @@ import br.ufrn.imd.Dao.AtletaDao;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * The type Atleta controller.
+ */
 public class AtletaController implements Controller<Atleta> {
 
+    /**
+     * The Dao.
+     */
     AtletaDao dao;
 
+    /**
+     * Instantiates a new Atleta controller.
+     */
     public AtletaController() {
         ParserJson parse = new ParserJson();
         this.dao = new AtletaDao( parse.parserAll() );
@@ -38,6 +47,12 @@ public class AtletaController implements Controller<Atleta> {
             System.out.println("Erro: não existem atletas salvos no sistema!");
     }
 
+    /**
+     * Atleta to json json object.
+     *
+     * @param A the a
+     * @return the json object
+     */
     public JSONObject atletaToJson(Atleta A) {
         JSONObject obj = new JSONObject();
         obj.put("Identificacao", A.getMatricula());

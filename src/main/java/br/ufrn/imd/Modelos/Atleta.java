@@ -3,6 +3,9 @@ package br.ufrn.imd.Modelos;
 import br.ufrn.imd.Enum.*;
 import java.util.ArrayList;
 
+/**
+ * The type Atleta.
+ */
 public class Atleta {
     private long matricula;
     private String nome;
@@ -12,30 +15,63 @@ public class Atleta {
     private int ano_periodo;
     private ArrayList<Modalidade> moda;
 
+    /**
+     * Instantiates a new Atleta.
+     */
     public Atleta() {
         moda = new ArrayList<Modalidade>();
     }
 
+    /**
+     * Gets matricula.
+     *
+     * @return the matricula
+     */
     public long getMatricula() {
         return matricula;
     }
 
+    /**
+     * Sets matricula.
+     *
+     * @param matricula the matricula
+     */
     public void setMatricula(long matricula) {
         this.matricula = matricula;
     }
 
+    /**
+     * Gets nome.
+     *
+     * @return the nome
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Sets nome.
+     *
+     * @param nome the nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * Gets sexo.
+     *
+     * @return the sexo
+     */
     public Sexo getSexo() {
         return sexo;
     }
 
+    /**
+     * Sets sexo.
+     *
+     * @param sexo the sexo
+     */
     public void setSexo(int sexo) {
         switch (sexo) {
             case 1:
@@ -52,10 +88,20 @@ public class Atleta {
         }
     }
 
+    /**
+     * Gets categoria.
+     *
+     * @return the categoria
+     */
     public Categoria getCategoria() {
         return categoria;
     }
 
+    /**
+     * Sets categoria.
+     *
+     * @param categoria the categoria
+     */
     public void setCategoria(int categoria) {
         switch (categoria) {
             case 1:
@@ -69,10 +115,20 @@ public class Atleta {
         }
     }
 
+    /**
+     * Gets curso.
+     *
+     * @return the curso
+     */
     public Curso getCurso() {
         return curso;
     }
 
+    /**
+     * Sets curso.
+     *
+     * @param curso the curso
+     */
     public void setCurso(int curso) {
         switch (curso) {
             case 0:
@@ -95,18 +151,38 @@ public class Atleta {
         }
     }
 
+    /**
+     * Gets ano periodo.
+     *
+     * @return the ano periodo
+     */
     public int getAno_periodo() {
         return ano_periodo;
     }
 
+    /**
+     * Sets ano periodo.
+     *
+     * @param ano_periodo the ano periodo
+     */
     public void setAno_periodo(int ano_periodo) {
         this.ano_periodo = ano_periodo;
     }
 
+    /**
+     * Gets mod.
+     *
+     * @return the mod
+     */
     public ArrayList<Modalidade> getMod() {
         return moda;
     }
 
+    /**
+     * Sets mod.
+     *
+     * @param moda the moda
+     */
     public void setMod(String moda) {
         if (moda.equals(Modalidade.Atl.getNome()))
             this.moda.add(Modalidade.Atl);
@@ -128,6 +204,11 @@ public class Atleta {
             this.moda.add(Modalidade.Vol);
     }
 
+    /**
+     * Sets mod.
+     *
+     * @param moda the moda
+     */
     public void setMod(int moda) {
         if (moda == Modalidade.Atl.getCod())
             this.moda.add(Modalidade.Atl);

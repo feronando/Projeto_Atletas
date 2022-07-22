@@ -4,12 +4,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+/**
+ * The type Menu.
+ */
 public class Menu {
 
+    /**
+     * Instantiates a new Menu.
+     */
     public Menu() {
 
     }
 
+    /**
+     * Menu principal.
+     */
     public void MenuPrincipal() {
         System.out.println("\nEscolha a opção desejada: ");
         System.out.println("\t1 - Adicionar um atleta");
@@ -21,6 +30,9 @@ public class Menu {
     }
 
 
+    /**
+     * Menu sexo.
+     */
     public void MenuSexo() {
         System.out.println("Opçoes: ");
         System.out.println("1 - Feminino ");
@@ -29,6 +41,11 @@ public class Menu {
         System.out.println("Insira o sexo do novo atleta: ");
     }
 
+    /**
+     * Ler sexo int.
+     *
+     * @return the int
+     */
     public int LerSexo() {
         String op;
         try {
@@ -47,6 +64,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Menu categoria.
+     */
     public void MenuCategoria() {
         System.out.println("Opçoes: ");
         System.out.println("1 - Aluno ");
@@ -54,6 +74,11 @@ public class Menu {
         System.out.println("Insira a categoria do novo atleta: ");
     }
 
+    /**
+     * Ler categoria int.
+     *
+     * @return the int
+     */
     public int LerCategoria() {
         String op;
         try {
@@ -74,6 +99,9 @@ public class Menu {
 
     }
 
+    /**
+     * Menu curso.
+     */
     public void MenuCurso() {
         System.out.println("Opções: ");
         System.out.println("0 - Sem curso");
@@ -84,6 +112,11 @@ public class Menu {
         System.out.println("Insira o curso do novo atleta: ");
     }
 
+    /**
+     * Ler curso int.
+     *
+     * @return the int
+     */
     public int LerCurso() {
         String op;
         try {
@@ -103,6 +136,9 @@ public class Menu {
 
     }
 
+    /**
+     * Menu modalidade.
+     */
     public void MenuModalidade() {
         System.out.println("Opções: ");
         System.out.println("1 - Atletismo");
