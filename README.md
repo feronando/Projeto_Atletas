@@ -8,9 +8,8 @@
 Projeto desenvolvido por Anny K. Fernandes, Fernanda G. Barros e Fernando G. de Almeida
 
 ### 🎥 Apresentação do produto
-```
-https://youtu.be/XrC4QUODSdo
-```
+
+<a href="https://youtu.be/XrC4QUODSdo">Acessar vídeo</a>
 
 ### Organização
 O sistema está organizado nas seguintes classes que estão representadas no diagrama de classes abaixo:
